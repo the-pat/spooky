@@ -1,0 +1,17 @@
+{
+  "name": "@the-pat/spooky",
+  "version": "0.0.1",
+  "description": "Like cornify, but spooky",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-pat/spooky.git"
+  },
+  "author": "the-pat",
+  "license": "The Unlicense",
+  "bugs": {
+    "url": "https://github.com/the-pat/spooky/issues"
+  },
+  "homepage": "https://github.com/the-pat/spooky#readme"
+}
