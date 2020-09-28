@@ -35,6 +35,11 @@ var spooky = (function () {
     return getSpookyFriend(50, 50, theGreatPumpkin);
   }
 
+  function appendToBody(el) {
+    var body = document.getElementsByTagName("body")[0];
+    body.appendChild(el);
+  }
+
   function getSpookyFriend(top, left, url = getRandomElement(spookyUrls)) {
     var transform = `translate(-50%, -50%) rotate(${Math.round(
       Math.random() * 10 - 5
@@ -92,9 +97,8 @@ var spooky = (function () {
   function add(options) {
     count += 1;
 
-    var body = document.getElementsByTagName("body")[0];
     var div = getRandomSpookyFriend();
-    body.appendChild(div);
+    appendToBody(div);
 
     // TODO: spooky css after 5 clicks
     // TODO: update spooky counter
