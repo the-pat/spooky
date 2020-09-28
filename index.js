@@ -60,24 +60,21 @@ var spooky = (function () {
     };
     img.setAttribute("src", url);
 
-    div.onmouseover = function () {
-      var size = 1 + Math.round(Math.random() * 10) / 100;
-      var angle = Math.round(Math.random() * 20 - 10);
-      var result = "rotate(" + angle + "deg) scale(" + size + "," + size + ")";
-
-      img.style.transform = result;
-      img.style.MozTransform = result;
-      img.style.webkitTransform = result;
+    const onMouseEvent = (angle, size) => () => {
+      const transform =
+        "rotate(" + angle + "deg) scale(" + size + "," + size + ")";
+      img.style.transform = transform;
+      img.style.MozTransform = transform;
+      img.style.webkitTransform = transform;
     };
 
-    div.onmouseout = function () {
-      var size = 0.9 + Math.round(Math.random() * 10) / 100;
-      var angle = Math.round(Math.random() * 6 - 3);
-      var result = "rotate(" + angle + "deg) scale(" + size + "," + size + ")";
-      img.style.transform = result;
-      img.style.MozTransform = result;
-      img.style.webkitTransform = result;
-    };
+    const mouseOverAngle = Math.round(Math.random() * 20 - 10);
+    const mouseOverSize = 1 + Math.round(Math.random() * 10) / 100;
+    div.onmouseover = onMouseEvent(mouseOverAngle, mouseOverSize);
+
+    const mouseOutAngle = Math.round(Math.random() * 6 - 3);
+    const mouseOutSize = 0.9 + Math.round(Math.random() * 10) / 100;
+    div.onmouseout = onMouseEvent(mouseOutAngle, mouseOutSize);
 
     div.appendChild(img);
     return div;
