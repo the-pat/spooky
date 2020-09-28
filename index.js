@@ -25,11 +25,9 @@ var spooky = (function () {
       "https://cdn.iconscout.com/icon/free/png-512/ghost-94-450461.png",
     ];
 
-    var randomHeight = Math.random() * 0.75;
     var windowHeight = 768;
     var windowWidth = 1024;
     var height = 0;
-    var width = 0;
     var doc = document.documentElement;
     var transform = "translate(-50%, -50%)";
 
