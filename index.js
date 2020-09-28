@@ -13,9 +13,9 @@
 var spooky = (function () {
   var count = 0;
   const theGreatPumpkin =
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTaMQR6brlU6ATGZmhsDPqs8_8T_wshseEPHw&usqp=CAU";
+    "http://www.darkhallmansion.com/wp-content/themes/adventure/timthumb.php?src=http://www.darkhallmansion.com/wp-content/uploads/2011/11/GREAT-PUMPKIN-STD-A.jpg&w=690&h=350&zc=1&q=100";
   var spookyUrls = [
-    theGreatPumpkin,
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTaMQR6brlU6ATGZmhsDPqs8_8T_wshseEPHw&usqp=CAU",
     "https://cdn.iconscout.com/icon/free/png-512/ghost-creature-face-fairy-tale-fantasy-monster-37768.png",
     "https://cdn.iconscout.com/icon/free/png-512/ghost-94-450461.png",
   ];
@@ -44,7 +44,7 @@ var spooky = (function () {
     var transform = `translate(-50%, -50%) rotate(${Math.round(
       Math.random() * 10 - 5
     )}deg)`;
-    if (Math.random() > 0.5) {
+    if (url !== theGreatPumpkin && Math.random() > 0.5) {
       transform += " scaleX(-1)";
     }
 
@@ -56,7 +56,6 @@ var spooky = (function () {
     div.style.outline = 0;
     div.onclick = add;
 
-    // TODO: add the great pumpkin at the center of the screen
     // Position our friend on the screen
     div.style.top = top + "%";
     div.style.left = left + "%";
@@ -111,6 +110,12 @@ var spooky = (function () {
     add();
     setInterval(add, 1000);
   }
+
+  // It's the great side-effect, Charlie Brown!
+  window.onload = () => {
+    var theGreatPumpkinDiv = getGreatPumpkin();
+    appendToBody(theGreatPumpkinDiv);
+  };
 
   return {
     add,
