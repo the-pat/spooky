@@ -25,7 +25,12 @@ var spooky = (function () {
       "https://cdn.iconscout.com/icon/free/png-512/ghost-94-450461.png",
     ];
 
-    var transform = "translate(-50%, -50%)";
+    var transform = `translate(-50%, -50%) rotate(${Math.round(
+      Math.random() * 10 - 5
+    )}deg)`;
+    if (Math.random() > 0.5) {
+      transform += " scaleX(-1)";
+    }
 
     // Create a container for our haunted friend
     var div = document.createElement("div");
@@ -39,12 +44,6 @@ var spooky = (function () {
     // Position our friend on the screen
     div.style.top = Math.round(Math.random() * 100) + "%";
     div.style.left = Math.round(Math.random() * 100) + "%";
-    transform += " rotate(" + Math.round(Math.random() * 10 - 5) + "deg)";
-
-    if (Math.random() > 0.5) {
-      transform += " scaleX(-1)";
-    }
-
     div.style.transform = transform;
     div.style.MozTransform = transform;
     div.style.webkitTransform = transform;
