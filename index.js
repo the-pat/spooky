@@ -39,7 +39,7 @@ var spooky = (function () {
     var div = document.createElement("div");
     div.style.position = "fixed";
     div.className = "__spooky_friend";
-    div.style.zIndex = 143143;
+    div.style.zIndex = 187000; // B00
     div.style.outline = 0;
     div.onclick = add;
 
