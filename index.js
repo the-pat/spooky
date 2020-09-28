@@ -12,6 +12,13 @@
 
 var spooky = (function () {
   var count = 0;
+  const theGreatPumpkin =
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTaMQR6brlU6ATGZmhsDPqs8_8T_wshseEPHw&usqp=CAU";
+  var spookyUrls = [
+    theGreatPumpkin,
+    "https://cdn.iconscout.com/icon/free/png-512/ghost-creature-face-fairy-tale-fantasy-monster-37768.png",
+    "https://cdn.iconscout.com/icon/free/png-512/ghost-94-450461.png",
+  ];
 
   function getRandomElement(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -24,14 +31,11 @@ var spooky = (function () {
     );
   }
 
-  function getSpookyFriend(top, left) {
-    // Prepare our spooky variables
-    var spookyUrls = [
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTaMQR6brlU6ATGZmhsDPqs8_8T_wshseEPHw&usqp=CAU",
-      "https://cdn.iconscout.com/icon/free/png-512/ghost-creature-face-fairy-tale-fantasy-monster-37768.png",
-      "https://cdn.iconscout.com/icon/free/png-512/ghost-94-450461.png",
-    ];
+  function getGreatPumpkin() {
+    return getSpookyFriend(50, 50, theGreatPumpkin);
+  }
 
+  function getSpookyFriend(top, left, url = getRandomElement(spookyUrls)) {
     var transform = `translate(-50%, -50%) rotate(${Math.round(
       Math.random() * 10 - 5
     )}deg)`;
@@ -54,8 +58,6 @@ var spooky = (function () {
     div.style.transform = transform;
     div.style.MozTransform = transform;
     div.style.webkitTransform = transform;
-
-    var url = getRandomElement(spookyUrls);
 
     // Create the image element
     var img = document.createElement("img");
