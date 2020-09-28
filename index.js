@@ -17,7 +17,14 @@ var spooky = (function () {
     return arr[Math.floor(Math.random() * arr.length)];
   }
 
-  function getSpookyFriend() {
+  function getRandomSpookyFriend() {
+    return getSpookyFriend(
+      Math.round(Math.random() * 100),
+      Math.round(Math.random() * 100)
+    );
+  }
+
+  function getSpookyFriend(top, left) {
     // Prepare our spooky variables
     var spookyUrls = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTaMQR6brlU6ATGZmhsDPqs8_8T_wshseEPHw&usqp=CAU",
@@ -42,8 +49,8 @@ var spooky = (function () {
 
     // TODO: add the great pumpkin at the center of the screen
     // Position our friend on the screen
-    div.style.top = Math.round(Math.random() * 100) + "%";
-    div.style.left = Math.round(Math.random() * 100) + "%";
+    div.style.top = top + "%";
+    div.style.left = left + "%";
     div.style.transform = transform;
     div.style.MozTransform = transform;
     div.style.webkitTransform = transform;
@@ -84,7 +91,7 @@ var spooky = (function () {
     count += 1;
 
     var body = document.getElementsByTagName("body")[0];
-    var div = getSpookyFriend();
+    var div = getRandomSpookyFriend();
     body.appendChild(div);
 
     // TODO: spooky css after 5 clicks
