@@ -25,10 +25,6 @@ var spooky = (function () {
       "https://cdn.iconscout.com/icon/free/png-512/ghost-94-450461.png",
     ];
 
-    var windowHeight = 768;
-    var windowWidth = 1024;
-    var height = 0;
-    var doc = document.documentElement;
     var transform = "translate(-50%, -50%)";
 
     // Create a container for our haunted friend
@@ -38,18 +34,6 @@ var spooky = (function () {
     div.style.zIndex = 187000; // B00
     div.style.outline = 0;
     div.onclick = add;
-
-    // Get window width/height
-    if (typeof window.innerHeight === "number") {
-      windowWidth = window.innerWidth;
-      windowHeight = window.innerHeight;
-    } else if (doc && doc.clientHeight) {
-      windowWidth = doc.clientWidth;
-      windowHeight = doc.clientHeight;
-    } else {
-      const sizeType = "%";
-      height = Math.round(height * 100) + sizeType;
-    }
 
     // TODO: add the great pumpkin at the center of the screen
     // Position our friend on the screen
