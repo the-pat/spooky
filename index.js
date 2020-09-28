@@ -121,3 +121,10 @@ var spooky = (function () {
     loop,
   };
 })();
+
+let p = document.getElementById('btn-counter')
+let count = 0
+function counter(){
+  count++
+  p.innerHTML=count
+}
