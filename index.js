@@ -17,15 +17,14 @@ var spooky = (function () {
     return arr[Math.floor(Math.random() * arr.length)];
   }
 
-  function add(options) {
-    count += 1;
-
+  function getSpookyFriend() {
     // Prepare our spooky variables
     var spookyUrls = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTaMQR6brlU6ATGZmhsDPqs8_8T_wshseEPHw&usqp=CAU",
       "https://cdn.iconscout.com/icon/free/png-512/ghost-creature-face-fairy-tale-fantasy-monster-37768.png",
       "https://cdn.iconscout.com/icon/free/png-512/ghost-94-450461.png",
     ];
+
     var sizeType = "px";
     var randomHeight = Math.random() * 0.75;
     var windowHeight = 768;
@@ -100,9 +99,16 @@ var spooky = (function () {
       img.style.webkitTransform = result;
     };
 
-    var body = document.getElementsByTagName("body")[0];
-    body.appendChild(div);
     div.appendChild(img);
+    return div;
+  }
+
+  function add(options) {
+    count += 1;
+
+    var body = document.getElementsByTagName("body")[0];
+    var div = getSpookyFriend();
+    body.appendChild(div);
 
     // TODO: spooky css after 5 clicks
     // TODO: update spooky counter
