@@ -25,6 +25,8 @@ var spooky = (function () {
       "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTaMQR6brlU6ATGZmhsDPqs8_8T_wshseEPHw&usqp=CAU",
       "https://cdn.iconscout.com/icon/free/png-512/ghost-creature-face-fairy-tale-fantasy-monster-37768.png",
       "https://cdn.iconscout.com/icon/free/png-512/ghost-94-450461.png",
+      'https://cdn.pixabay.com/photo/2017/10/13/14/15/fantasy-2847724__340.jpg',
+      'https://cdn.pixabay.com/photo/2017/07/26/19/54/fantasy-2542946__340.jpg',
     ];
     var sizeType = "px";
     var randomHeight = Math.random() * 0.75;
