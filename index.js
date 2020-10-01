@@ -25,6 +25,8 @@ var spooky = (function () {
       "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTaMQR6brlU6ATGZmhsDPqs8_8T_wshseEPHw&usqp=CAU",
       "https://cdn.iconscout.com/icon/free/png-512/ghost-creature-face-fairy-tale-fantasy-monster-37768.png",
       "https://cdn.iconscout.com/icon/free/png-512/ghost-94-450461.png",
+      'https://cdn.pixabay.com/photo/2017/10/13/14/15/fantasy-2847724__340.jpg',
+      'https://cdn.pixabay.com/photo/2017/07/26/19/54/fantasy-2542946__340.jpg',
       "https://cdn.pixabay.com/photo/2016/09/02/22/45/pumpkin-1640465_1280.png",
       "https://cdn.pixabay.com/photo/2013/07/13/12/04/death-159120_1280.png",
       "https://cdn.pixabay.com/photo/2016/06/16/08/31/night-1460872_1280.png",
