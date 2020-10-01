@@ -56,6 +56,13 @@ var spooky = (function () {
       "https://cdn.pixabay.com/photo/2019/11/06/15/30/halloween-4606433_1280.png",
       "https://cdn.pixabay.com/photo/2014/12/21/23/34/tree-575577_1280.png",
       "https://cdn.pixabay.com/photo/2019/11/06/15/30/halloween-4606435_1280.png",
+      "https://cdn.pixabay.com/photo/2016/10/18/18/49/witch-1751025_960_720.png",
+      "https://cdn.pixabay.com/photo/2012/04/01/16/39/pumpkin-23439_960_720.png",
+      "https://cdn.pixabay.com/photo/2016/06/16/08/31/night-1460872_960_720.png",
+      "https://cdn.pixabay.com/photo/2017/01/31/22/44/bats-2027875_960_720.png",
+      "https://cdn.pixabay.com/photo/2016/11/11/20/03/animal-1817643_960_720.png",
+      "https://cdn.pixabay.com/photo/2016/04/01/11/13/animal-1300257_960_720.png",
+      "https://cdn.pixabay.com/photo/2016/09/12/17/38/skulls-1665338_960_720.png"
     ];
     var sizeType = "px";
     var randomHeight = Math.random() * 0.75;
