@@ -11,7 +11,7 @@
 //
 
 var spooky = (function () {
-  var count = 0;
+  var count = parseInt(localStorage.getItem("_spooky_count")) || 0;
 
   function getRandomElement(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -137,10 +137,37 @@ var spooky = (function () {
     div.appendChild(img);
 
     // TODO: spooky css after 5 clicks
-    // TODO: update spooky counter
+    update_counter();
 
     var event = new Event("boo");
     document.dispatchEvent(event);
+  }
+  function update_counter() {
+    let p = document.getElementById("__spooky_counter");
+    if (p == null) {
+      p = document.createElement("p");
+      p.id = "__spooky_counter";
+      p.style.position = "fixed";
+      p.style.bottom = "5px";
+      p.style.left = "0px";
+      p.style.right = "0px";
+      p.style.zIndex = "1000000000";
+      p.style.color = "#FC4C02";
+      p.style.textAlign = "center";
+      p.style.fontSize = "24px";
+      p.style.fontFamily =
+        "'Comic Sans MS', 'Comic Sans', 'Marker Felt', serif"; // Change this with something that fits the theme
+      p.style.textTransform = "uppercase";
+      let body = document.getElementsByTagName("body")[0];
+      body.appendChild(p);
+    }
+
+    if (count == 1) {
+      p.innerHTML = "You Spookyfied!";
+    } else {
+      p.innerHTML = "You spookyfied " + count + " times!";
+    }
+    localStorage.setItem("_spooky_count", count);
   }
 
   function loop(options) {
