@@ -12,6 +12,7 @@
 
 var spooky = (function () {
   var count = parseInt(localStorage.getItem("_spooky_count")) || 0;
+  let init_count = count;
 
   function getRandomElement(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -86,21 +87,30 @@ var spooky = (function () {
       height = Math.round(height * 100) + sizeType;
     }
 
-    // TODO: add the great pumpkin at the center of the screen
-    // Position our friend on the screen
-    div.style.top = Math.round(Math.random() * 100) + "%";
-    div.style.left = Math.round(Math.random() * 100) + "%";
-    transform += " rotate(" + Math.round(Math.random() * 10 - 5) + "deg)";
+    //TODO: Replace the gp_url with url to GrandPumpkin, now it's just a normal pumpkin
+    let gp_url =
+      "https://cdn.pixabay.com/photo/2016/09/02/22/52/vector-1640482_960_720.png";
+    let grandpumpkin = count - init_count == 15 ? gp_url : false;
+    if (grandpumpkin) {
+      div.style.top = "50%";
+      div.style.left = "50%";
+      div.style.zIndex = 143143143;
+    } else {
+      // Position our friend on the screen
+      div.style.top = Math.round(Math.random() * 100) + "%";
+      div.style.left = Math.round(Math.random() * 100) + "%";
+      transform += " rotate(" + Math.round(Math.random() * 10 - 5) + "deg)";
 
-    if (Math.random() > 0.5) {
-      transform += " scaleX(-1)";
+      if (Math.random() > 0.5) {
+        transform += " scaleX(-1)";
+      }
     }
 
     div.style.transform = transform;
     div.style.MozTransform = transform;
     div.style.webkitTransform = transform;
 
-    var url = getRandomElement(spookyUrls);
+    var url = grandpumpkin || getRandomElement(spookyUrls);
 
     // Create the image element
     var img = document.createElement("img");
