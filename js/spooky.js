@@ -87,9 +87,8 @@ var spooky = (function () {
       height = Math.round(height * 100) + sizeType;
     }
 
-    //TODO: Replace the gp_url with url to GrandPumpkin, now it's just a normal pumpkin
     let gp_url =
-      "https://cdn.pixabay.com/photo/2016/09/02/22/52/vector-1640482_960_720.png";
+      "https://img.pngio.com/hd-its-the-great-pumpkin-charlie-brown-clip-art-pictures-great-pumpkin-charlie-brown-png-900_820.png";
     let grandpumpkin = count - init_count == 15 ? gp_url : false;
     if (grandpumpkin) {
       div.style.top = "50%";
