@@ -164,8 +164,7 @@ var spooky = (function () {
       p.style.color = "#FC4C02";
       p.style.textAlign = "center";
       p.style.fontSize = "24px";
-      p.style.fontFamily =
-        "'Comic Sans MS', 'Comic Sans', 'Marker Felt', serif"; // Change this with something that fits the theme
+      p.style.fontFamily = "'Amatic SC', 'sans-serif'"; // will work after 5 clicks
       p.style.textTransform = "uppercase";
       let body = document.getElementsByTagName("body")[0];
       body.appendChild(p);
