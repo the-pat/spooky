@@ -145,7 +145,7 @@ var spooky = (function () {
     body.appendChild(div);
     div.appendChild(img);
 
-    // TODO: spooky css after 5 clicks
+    if (count - init_count == 5) spooky_css();
     update_counter();
 
     var event = new Event("boo");
@@ -164,8 +164,7 @@ var spooky = (function () {
       p.style.color = "#FC4C02";
       p.style.textAlign = "center";
       p.style.fontSize = "24px";
-      p.style.fontFamily =
-        "'Comic Sans MS', 'Comic Sans', 'Marker Felt', serif"; // Change this with something that fits the theme
+      p.style.fontFamily = "'Amatic SC', 'sans-serif'"; // will work after 5 clicks
       p.style.textTransform = "uppercase";
       let body = document.getElementsByTagName("body")[0];
       body.appendChild(p);
@@ -177,6 +176,19 @@ var spooky = (function () {
       p.innerHTML = "You spookyfied " + count + " times!";
     }
     localStorage.setItem("_spooky_count", count);
+  }
+
+  function spooky_css() {
+    let existing = document.getElementById("_spooky_css");
+    if (existing) return;
+    let css = document.createElement("style");
+    css.id = "_spooky_css";
+    css.innerHTML = `@import url("https://fonts.googleapis.com/css?family=Amatic+SC:400,700");
+    body {
+      font-family: 'Amatic SC', sans-serif;!important
+      font-size: large;!important
+    }`;
+    document.head.append(css);
   }
 
   function loop(options) {
