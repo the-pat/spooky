@@ -57,6 +57,20 @@ var spooky = (function () {
       "https://cdn.pixabay.com/photo/2019/11/06/15/30/halloween-4606433_1280.png",
       "https://cdn.pixabay.com/photo/2014/12/21/23/34/tree-575577_1280.png",
       "https://cdn.pixabay.com/photo/2019/11/06/15/30/halloween-4606435_1280.png",
+      "https://image.freepik.com/free-vector/flat-design-halloween-background-with-pumpkins-bats_23-2148634923.jpg",
+      "https://image.freepik.com/free-vector/halloween-night-moon-composition-with-glowing-pumpkins-vintage-castle-bats-flying-cemetery-flat_1284-40781.jpg",
+      "https://image.freepik.com/free-vector/spooky-halloween-pumpkins-grunge-style-interior_1048-13186.jpg",
+      "https://image.freepik.com/free-vector/hand-drawn-halloween-ghosts_23-2147691910.jpg",
+      "https://image.freepik.com/free-vector/halloween-ghost-hand-drawn-collection_52683-46645.jpg",
+      "https://image.freepik.com/free-vector/flat-design-halloween-character-collection_23-2148676484.jpg",
+      "https://image.freepik.com/free-vector/hand-drawn-smiley-pumpkins-raven-background_23-2148624236.jpg",
+      "https://image.freepik.com/free-vector/happy-halloween-spooky-card-with-scary-face_1017-28357.jpg",
+      "https://image.freepik.com/free-vector/decorative-halloween-background-flat-style_23-2148259630.jpg",
+      "https://img.freepik.com/free-vector/scary-balloon-bats-happy-halloween-card_1017-28089.jpg?size=338&ext=jpg&ga=GA1.2.1872803767.1603593604",
+      "https://image.freepik.com/free-vector/halloween-illustration-with-big-glowing-moon-ball-night-sparkle-sky-bats-magic-forest-flat_1284-40788.jpg",
+      "http://www.freedigitalphotos.net/images/gallery-thumbnails.php?id=41283318194498906586603729",
+      "http://www.freedigitalphotos.net/images/gallery-thumbnails.php?id=91069066024212392279173197",
+      "http://www.freedigitalphotos.net/images/previews/halloween-growl-black-cat-bat-moon-graveyard-100571775.jpg",
     ];
     var sizeType = "px";
     var randomHeight = Math.random() * 0.75;
