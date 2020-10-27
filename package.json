@@ -2,7 +2,7 @@
   "name": "@the-pat/spooky",
   "version": "0.0.1",
   "description": "Like cornify, but spooky",
-  "main": "spooky.js",
+  "browser": "./js/spooky.js",
   "scripts": {},
   "repository": {
     "type": "git",

@@ -9,17 +9,16 @@
 //  \       /|  |        `'  '-'  '   `'  '-'  '|  |\   \  `-./  /.__)
 //   `-----' `--'          `-----'      `-----' `--' '--'    `--'
 //
-
-const spooky = (function () {
+const spooky = (() => {
   let count = parseInt(localStorage.getItem("_spooky_count")) || 0;
-  let init_count = count;
+  const initCount = count;
 
-  //set great pumpkin url
+  // Set great pumpkin url
   const gp_url =
-  "https://img.pngio.com/hd-its-the-great-pumpkin-charlie-brown-clip-art-pictures-great-pumpkin-charlie-brown-png-900_820.png";
+    "https://i.pinimg.com/originals/ee/43/99/ee43995b5f7a2a9f9183532b4a06d84d.png";
 
-   // Prepare our spooky variables
-   const spookyUrls = [
+  // Prepare our spooky variables
+  const spookyUrls = [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTaMQR6brlU6ATGZmhsDPqs8_8T_wshseEPHw&usqp=CAU",
     "https://cdn.iconscout.com/icon/free/png-512/ghost-creature-face-fairy-tale-fantasy-monster-37768.png",
     "https://cdn.iconscout.com/icon/free/png-512/ghost-94-450461.png",
@@ -70,35 +69,36 @@ const spooky = (function () {
     "http://www.freedigitalphotos.net/images/previews/halloween-growl-black-cat-bat-moon-graveyard-100571775.jpg",
   ];
 
-  function getRandomElement(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
-  }
+  const getRandomElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-  function getGreatPumpkin() {
-    return getSpookyFriend(50, 50, gp_url);
-  }
+  const getGreatPumpkin = () =>
+    getSpookyFriend("50%", "50%", gp_url, 143143143);
 
-  function getSpookyFriend(top, left, url) {
-    let transform = `translate(-50%, -50%) rotate(${Math.round(Math.random() * 10 - 5)}deg)`;
+  const getSpookyFriend = (top, left, url, zindex = 143143) => {
+    let transform = `translate(-50%, -50%) rotate(${Math.round(
+      Math.random() * 10 - 5
+    )}deg)`;
+
     if (Math.random() > 0.5) {
       transform += " scaleX(-1)";
     }
-   
-     // Create a container for our haunted friend
-     let div = document.createElement("div");
-     div.style.position = "fixed";
-     div.className = "__spooky_friend";
-     div.style.zIndex = 143143;
-     div.style.outline = 0;
-  
-     div.style.top = top + "%";
-     div.style.left = left + "%";
-     div.style.transform = transform;
-     div.style.MozTransform = transform;
-     div.style.webkitTransform = transform;
-    
+
+    // Create a container for our haunted friend
+    const div = document.createElement("div");
+    div.style.position = "fixed";
+    div.className = "__spooky_friend";
+    div.style.zIndex = zindex;
+    div.style.outline = 0;
+    div.onclick = add;
+
+    div.style.top = top;
+    div.style.left = left;
+    div.style.transform = transform;
+    div.style.MozTransform = transform;
+    div.style.webkitTransform = transform;
+
     // Create the image element
-    let img = document.createElement("img");
+    const img = document.createElement("img");
     img.style.opacity = 0;
     img.style.transition = "all 0.1s linear";
     img.alt = "A spooky, haunted friend";
@@ -108,51 +108,56 @@ const spooky = (function () {
     img.setAttribute("src", url);
     img.style.maxWidth = `${window.innerWidth / 5}px`;
 
-    let body = document.getElementsByTagName("body")[0];
+    const body = document.getElementsByTagName("body")[0];
     body.appendChild(div);
     div.appendChild(img);
 
-    div.onmouseover = function () {
-      let size = 1 + Math.round(Math.random() * 10) / 100;
-      let angle = Math.round(Math.random() * 20 - 10);
-      let result = `rotate(${angle}deg) scale(${size}, ${size})`;
+    div.onmouseover = () => {
+      const size = 1 + Math.round(Math.random() * 10) / 100;
+      const angle = Math.round(Math.random() * 20 - 10);
+      const result = `rotate(${angle}deg) scale(${size}, ${size})`;
 
       img.style.transform = result;
       img.style.MozTransform = result;
       img.style.webkitTransform = result;
     };
 
-    div.onmouseout = function () {
-      let size = 0.9 + Math.round(Math.random() * 10) / 100;
-      let angle = Math.round(Math.random() * 6 - 3);
-      let result = `rotate(${angle}deg) scale(${size}, ${size})`;
+    div.onmouseout = () => {
+      const size = 0.9 + Math.round(Math.random() * 10) / 100;
+      const angle = Math.round(Math.random() * 6 - 3);
+      const result = `rotate(${angle}deg) scale(${size}, ${size})`;
       img.style.transform = result;
       img.style.MozTransform = result;
       img.style.webkitTransform = result;
     };
+  };
 
-  }
+  const add = () => {
+    count += 1;
 
-
-  function add() {
-    count += 1;    
- 
-    if(count - init_count === 15) {
-         getGreatPumpkin();
-    }else{
-         getSpookyFriend(Math.round(Math.random() * 100), Math.round(Math.random() * 100), getRandomElement(spookyUrls));
+    if (count - initCount === 15) {
+      getGreatPumpkin();
+    } else {
+      getSpookyFriend(
+        `${Math.round(Math.random() * 100)}%`,
+        `${Math.round(Math.random() * 100)}%`,
+        getRandomElement(spookyUrls)
+      );
     }
-        
 
-    if (count - init_count == 5) spooky_css();
-    update_counter();
+    if (count - initCount == 5) {
+      spooky_css();
+    }
 
-    let event = new Event("boo");
+    updateCounter();
+
+    const event = new Event("boo");
     document.dispatchEvent(event);
-  }
+  };
 
-  function update_counter() {
+  const updateCounter = () => {
     let p = document.getElementById("__spooky_counter");
+
     if (p == null) {
       p = document.createElement("p");
       p.id = "__spooky_counter";
@@ -166,22 +171,27 @@ const spooky = (function () {
       p.style.fontSize = "24px";
       p.style.fontFamily = "'Amatic SC', 'sans-serif'"; // will work after 5 clicks
       p.style.textTransform = "uppercase";
-      let body = document.getElementsByTagName("body")[0];
+
+      const body = document.getElementsByTagName("body")[0];
       body.appendChild(p);
     }
 
-    if (count == 1) {
+    if (count === 1) {
       p.innerHTML = "You Spookyfied!";
     } else {
       p.innerHTML = `You spookyfied ${count} times!`;
     }
-    localStorage.setItem("_spooky_count", count);
-  }
 
-  function spooky_css() {
-    let existing = document.getElementById("_spooky_css");
-    if (existing) return;
-    let css = document.createElement("style");
+    localStorage.setItem("_spooky_count", count);
+  };
+
+  const spooky_css = () => {
+    const existing = document.getElementById("_spooky_css");
+    if (existing) {
+      return;
+    }
+
+    const css = document.createElement("style");
     css.id = "_spooky_css";
     css.innerHTML = `@import url("https://fonts.googleapis.com/css?family=Amatic+SC:400,700");
     body {
@@ -189,13 +199,12 @@ const spooky = (function () {
       font-size: large;!important
     }`;
     document.head.append(css);
-  }
+  };
 
-
-   function loop() {
+  const loop = () => {
     add();
     setInterval(add, 1500);
-  }
+  };
 
   return {
     add,
