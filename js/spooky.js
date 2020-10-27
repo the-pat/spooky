@@ -106,7 +106,7 @@ const spooky = (function () {
       img.style.opacity = 1;
     };
     img.setAttribute("src", url);
-    img.style.maxWidth = window.innerWidth / 5 + "px";
+    img.style.maxWidth = `${window.innerWidth / 5}px`;
 
     let body = document.getElementsByTagName("body")[0];
     body.appendChild(div);
@@ -115,7 +115,7 @@ const spooky = (function () {
     div.onmouseover = function () {
       let size = 1 + Math.round(Math.random() * 10) / 100;
       let angle = Math.round(Math.random() * 20 - 10);
-      let result = "rotate(" + angle + "deg) scale(" + size + "," + size + ")";
+      let result = `rotate(${angle}deg) scale(${size}, ${size})`;
 
       img.style.transform = result;
       img.style.MozTransform = result;
@@ -125,7 +125,7 @@ const spooky = (function () {
     div.onmouseout = function () {
       let size = 0.9 + Math.round(Math.random() * 10) / 100;
       let angle = Math.round(Math.random() * 6 - 3);
-      let result = "rotate(" + angle + "deg) scale(" + size + "," + size + ")";
+      let result = `rotate(${angle}deg) scale(${size}, ${size})`;
       img.style.transform = result;
       img.style.MozTransform = result;
       img.style.webkitTransform = result;
@@ -173,7 +173,7 @@ const spooky = (function () {
     if (count == 1) {
       p.innerHTML = "You Spookyfied!";
     } else {
-      p.innerHTML = "You spookyfied " + count + " times!";
+      p.innerHTML = `You spookyfied ${count} times!`;
     }
     localStorage.setItem("_spooky_count", count);
   }
